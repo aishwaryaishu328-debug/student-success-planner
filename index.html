@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Success Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🎓 SuccessPlanner</div>
+    <nav>
+        <a href="#planner">Planner</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#progress">Progress</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div>
+            <span class="badge">✨ AI-Powered Student Planner</span>
+            <h1>Plan smarter.<br><span>Achieve more.</span></h1>
+            <p>
+                Organize exams, workshops, hackathons, internships and
+                placement preparation in one smart study planner.
+            </p>
+            <a href="#planner" class="primary-btn">Create My Plan →</a>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-icon">📅</div>
+            <h3>Your time matters.</h3>
+            <p>We'll help you turn your deadlines into an achievable daily plan.</p>
+        </div>
+    </section>
+
+    <!-- Planner -->
+    <section id="planner" class="section">
+
+        <div class="section-title">
+            <span>01</span>
+            <div>
+                <h2>Tell us about your goal</h2>
+                <p>We'll organize your preparation into manageable tasks.</p>
+            </div>
+        </div>
+
+        <div class="planner-grid">
+
+            <form id="plannerForm" class="card">
+
+                <label>What are you preparing for?</label>
+
+                <select id="eventType" required>
+                    <option value="">Select event type</option>
+                    <option value="Exam">📚 Exam</option>
+                    <option value="Workshop">🛠️ Workshop</option>
+                    <option value="Hackathon">💻 Hackathon</option>
+                    <option value="Placement">💼 Placement</option>
+                    <option value="Internship">🚀 Internship</option>
+                </select>
+
+                <label>Event / Goal name</label>
+
+                <input
+                    type="text"
+                    id="goalName"
+                    placeholder="Example: DSA Internal Exam"
+                    required
+                >
+
+                <label>Deadline</label>
+
+                <input
+                    type="date"
+                    id="deadline"
+                    required
+                >
+
+                <label>Tasks / Subjects</label>
+
+                <textarea
+                    id="tasks"
+                    placeholder="Example:
+Arrays
+Linked Lists
+Stacks
+Queues
+Practice problems"
+                    required
+                ></textarea>
+
+                <label>Available study hours per day</label>
+
+                <div class="hours-row">
+                    <input
+                        type="range"
+                        id="hours"
+                        min="1"
+                        max="12"
+                        value="4"
+                    >
+                    <strong><span id="hoursValue">4</span> hrs</strong>
+                </div>
+
+                <label>Priority</label>
+
+                <div class="priority-options">
+
+                    <label class="priority">
+                        <input type="radio" name="priority" value="Low">
+                        <span>Low</span>
+                    </label>
+
+                    <label class="priority">
+                        <input type="radio" name="priority" value="Medium" checked>
+                        <span>Medium</span>
+                    </label>
+
+                    <label class="priority">
+                        <input type="radio" name="priority" value="High">
+                        <span>High</span>
+                    </label>
+
+                </div>
+
+                <button type="submit" class="primary-btn full">
+                    ✨ Generate My Study Plan
+                </button>
+
+            </form>
+
+            <!-- Smart Tips -->
+            <div class="side-content">
+
+                <div class="tip-card">
+                    <span>💡</span>
+                    <div>
+                        <h3>Smart planning tip</h3>
+                        <p>
+                            Don't fill every hour with studying.
+                            Keep some time for breaks and unexpected tasks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Why SuccessPlanner?</h3>
+
+                    <div class="feature">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Priority first</strong>
+                            <p>Important tasks get more attention.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>📆</span>
+                        <div>
+                            <strong>Day-by-day planning</strong>
+                            <p>Your workload is divided into manageable days.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>📈</span>
+                        <div>
+                            <strong>Progress tracking</strong>
+                            <p>Track how much of your preparation is complete.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>🌱</span>
+                        <div>
+                            <strong>Healthy preparation</strong>
+                            <p>Short breaks help you stay consistent.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section dashboard-section">
+
+        <div class="section-title">
+            <span>02</span>
+            <div>
+                <h2>Your Dashboard</h2>
+                <p>Everything you need to stay on track.</p>
+            </div>
+        </div>
+
+        <div id="dashboardContent" class="empty-state">
+            <div>🗓️</div>
+            <h3>No plan created yet</h3>
+            <p>Create your first study plan above.</p>
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+    <section id="progress" class="section">
+
+        <div class="section-title">
+            <span>03</span>
+            <div>
+                <h2>Progress</h2>
+                <p>Small progress every day creates big results.</p>
+            </div>
+        </div>
+
+        <div id="progressContent" class="progress-card">
+            <div class="progress-number">0%</div>
+
+            <div class="progress-bar">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="progressText">
+                Complete tasks from your plan to see your progress.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>🎓 SuccessPlanner — Built for students, powered by smart planning.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
